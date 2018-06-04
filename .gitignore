@@ -29,6 +29,7 @@ project.xcworkspace
 lib
 *.iml
 .idea
+.vscode
 dist
 .gradle
 local.properties

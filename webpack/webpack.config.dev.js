@@ -10,6 +10,7 @@ module.exports = {
       path: path.resolve('dist'),
       filename: '[name].js',
       chunkFilename: 'js/[name].js',
+      publicPath: '/',
     },
     mode: 'development',
     module: {
@@ -29,6 +30,13 @@ module.exports = {
             inject: false,
             appMountId: 'root',
             template: './src/template/index.ejs',
-        })
-    ]
+        }),
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    devServer: {
+        port: 9000,
+        open: true,
+        hot: true,
+        inline: true,
+      },
   };
