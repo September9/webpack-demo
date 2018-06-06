@@ -2,8 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-//console.log("111111",path.resolve('dist'))
-
+console.log("77777", path.join('/foo', '/bar/', 'baz/asdf', 'quux'))
 
 module.exports = {
     entry: './src/index.js',
@@ -35,9 +34,10 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        port: 9000,
+        contentBase: path.join(__dirname, "dist"),
         open: true,
         hot: true,
         inline: true,
+        port: 9000,
       },
   };
