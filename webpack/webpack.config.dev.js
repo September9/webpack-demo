@@ -2,12 +2,10 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-console.log("77777", path.join('/foo', '/bar/', 'baz/asdf', 'quux'))
-
 module.exports = {
     entry: './src/index.js',
     output: {
-      path: path.resolve('dist'),
+      path: path.resolve(__dirname, '../dist'),
       filename: '[name].js',
       chunkFilename: 'js/[name].js',
       publicPath: '/',
@@ -16,9 +14,8 @@ module.exports = {
     module: {
         rules: [
            { 
-               test: /\.(js|jsx)$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
+                test: /\.(js|jsx)$/,
+                use: 'babel-loader',
             }
         ],
         
@@ -34,7 +31,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, "../dist"),
         open: true,
         hot: true,
         inline: true,
